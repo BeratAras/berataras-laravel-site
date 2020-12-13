@@ -71,7 +71,7 @@
   </script>
 
   <!-- bootstrap toggle js -->
-  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+  {{-- <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
   <script>
     $(function() {
       $('.switch').change(function() {
@@ -94,10 +94,10 @@
         });
       })
    })
-  </script>
+  </script> --}}
 
   <!-- category update js -->
-  <script>
+  {{-- <script>
     $(".edit-click").click(function(){
       id = $(this)[0].getAttribute('category-id');
       $.ajax({
@@ -113,7 +113,7 @@
         }
       })
     }); 
-  </script>
+  </script> --}}
 
 </body>
 

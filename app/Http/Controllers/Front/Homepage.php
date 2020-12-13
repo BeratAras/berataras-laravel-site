@@ -11,46 +11,33 @@ use App\Models\Content;
 use App\Models\Contact;
 use App\Models\Note;
 use App\Models\About;
+use App\Models\BionlukComment;
+use App\Models\Github;
+use App\Models\Banner;
+use App\Models\Setting;
 
 class Homepage extends Controller
 {
     public function index(){
-        $data['contents']=Content::orderBy('id', 'DESC')->paginate();
-        $data['categories']=Category::inRandomOrder()->get();
+        $data['comments']=BionlukComment::orderBy('id', 'ASC')->get();
+        $data['github']=Github::all();
+        $data['abouts']=About::get();
+        $data['banner']=Banner::inRandomOrder()->get();
+        $data['bannerBig']=Banner::where('banner_type', 'big')->first();
+        $data['settings']=Setting::where('id', 1)->first();
         return view('front.homepage', $data);
     }
-
-    public function contentDetail($slug){
-        $content=Content::where('content_slug', $slug)->first();
-        $content->increment('content_hit');
-        $data['content']=$content;
-        $data['categories']=Category::inRandomOrder()->get();
-        return view('front.post',$data);
-    }
     
-    public function category($slug){
-        $category=Category::where('category_slug', $slug)->first();
-        $data['category']=$category;
-        $data['contents']=Content::where('category_id', $category->id)->paginate(1);
-        $data['categories']=Category::inRandomOrder()->get();
-        return view('front.category', $data);
-    }
-
-    public function note(){
-        $data['notes']=Note::get();
-        $data['categories']=Category::inRandomOrder()->get();
-        return view('front.note', $data);
-    }
-
     public function about(){
+        $data['settings']=Setting::where('id', 1)->first();
         $data['abouts']=About::get();
-        $data['categories']=Category::inRandomOrder()->get();
         return view('front.about', $data);
     }
 
     public function contact(){
+        $data['settings']=Setting::where('id', 1)->first();
         $data['contacts']=Contact::get();
-        $data['categories']=Category::inRandomOrder()->get();
+        $data['abouts']=About::get();
         return view('front.contact',$data);
     }
 }

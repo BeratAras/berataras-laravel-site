@@ -47,7 +47,7 @@
                   <form class="user" method="POST" action="{{route('loginPost')}}">
                     {{csrf_field()}}
                     <div class="form-group">
-                      <input type="text" name="username" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Kullanıcı Adı">
+                      <input type="text" name="username" class="form-control form-control-user" placeholder="Kullanıcı Adı">
                     </div>
                     <div class="form-group">
                       <input type="password" name="pass" class="form-control form-control-user" id="exampleInputPassword" placeholder="Şifre">

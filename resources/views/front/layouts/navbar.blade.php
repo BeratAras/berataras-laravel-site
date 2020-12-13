@@ -4,22 +4,22 @@
 
                 <div class="header__logo">
                     <a class="logo" href="{{route('homepage')}}">
-                        <img src="{{asset('front/images/berataras_logo_white.png')}}" alt="Homepage">
+                        <img src="{{asset($settings->logo)}}" alt="Homepage">
                     </a>
                 </div> <!-- end header__logo -->
 
                 <ul class="header__social">
                     <li>
-                        <a href="#0"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="{{url($settings->facebook)}}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                     </li>
                     <li>
-                        <a href="#0"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="{{url($settings->twitter)}}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                     </li>
                     <li>
-                        <a href="#0"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        <a href="{{url($settings->instagram)}}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                     </li>
                     <li>
-                        <a href="#0"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                        <a href="{{url($settings->twitch)}}" target="_blank"><i class="fa fa-twitch" aria-hidden="true"></i></a>
                     </li>
                 </ul> <!-- end header__social -->
 
@@ -29,8 +29,8 @@
 
                     <form role="search" method="get" class="header__search-form" action="#">
                         <label>
-                            <span class="hide-content">Search for:</span>
-                            <input type="search" class="search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">
+                            <span class="hide-content">Ara:</span>
+                            <input type="search" class="search-field" placeholder="Ne Arıyorsun?" value="" name="s" title="Search for:" autocomplete="off">
                         </label>
                         <input type="submit" class="search-submit" value="Search">
                     </form>
@@ -48,16 +48,12 @@
 
                     <ul class="header__nav">
                         <li class="current"><a href="{{route('homepage')}}" title="">Anasayfa</a></li>
-                        <li class="current">
-                            <a>Kategoriler</a>
+                        {{-- <li class="current">
+                            <a>Çalışmalar</a>
                             <ul class="sub-menu">
-                                @foreach($categories as $category)
-                                <li><a href="{{route('category', $category->category_slug)}}">{{$category->category_name}}</a></li>
-                                @endforeach
+                                <li><a>CMS</a></li>
                             </ul>
-                        </li>
-                        <li class="current"><a href="{{route('homepage')}}" title="">Blog (beta)</a></li>
-                        <li class="current"><a href="{{route('note')}}" title="">Notlar</a></li>
+                        </li> --}}
                         <li class="current"><a href="{{route('about')}}" title="">Ben Kimim?</a></li>
                         <li class="current"><a href="{{route('contact')}}" title="">Bana Ulaş</a></li>
                     </ul> <!-- end header__nav -->
